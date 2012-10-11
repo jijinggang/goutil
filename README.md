@@ -5,7 +5,7 @@ golang utils package
 
 ##Pakages
 
-- [file](<api/file.md>)
+- [file](<./api/file.md>)
 - str
 - rand
 - web
