@@ -3,6 +3,10 @@ goutil
 
 golang utils package
 
+##Install
+    
+    go get -u github.com/jijinggang/goutil
+
 ##Pakages
 
 - [file](<./api/file.md>)
