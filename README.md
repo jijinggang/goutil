@@ -9,7 +9,7 @@ golang utils package
 
 ##Pakages
 
-- [file](<./api/file.md>)
+- [file](</jijinggang/goutil/api/file.md>)
 - str
 - rand
 - web
