@@ -1,6 +1,14 @@
-/*godoc . > ../api/file.md*/
+/*
+golang utils package
 
-package file
+doc from: ` godocdown . > README.md `
+
+##Install
+
+    go get -u github.com/jijinggang/goutil
+
+*/
+package goutil
 
 import (
 	"crypto/md5"
