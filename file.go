@@ -13,6 +13,7 @@ package goutil
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"errors"
 	"io"
 	"os"
 	"path/filepath"
@@ -37,6 +38,20 @@ func CopyFile(srcName, dstName string) (written int64, err error) {
 	defer dst.Close()
 
 	return io.Copy(dst, src)
+}
+
+func ReadStringFile(file string) (string, error) {
+	f, err := os.Open(file)
+	if err != nil {
+		return "", errors.New("can't open file")
+	}
+	const BUFSIZE = 1024 * 200
+	var buf [BUFSIZE]byte
+	rlen, err := f.Read(buf[0:])
+	if err != nil || rlen == BUFSIZE {
+		return "", errors.New("can't read file or too big file,must < 200K")
+	}
+	return string(buf[0:rlen]), nil
 }
 
 //写文本文件，如果文件存在，则覆盖
