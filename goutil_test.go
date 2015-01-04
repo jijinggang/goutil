@@ -65,3 +65,12 @@ func Test_ParseJsonString(t *testing.T) {
 		t.Fatalf("Actual %v expected %v", actual, expected)
 	}
 }
+
+func Test_NewMap(t *testing.T) {
+	m1 := NewMap("name", "golang", "level", 1)
+	m2 := NewMap("m1", m1, "other", 0)
+	AssertEqualStr(t, m1["name"].(string), "golang")
+	AssertEqualInt(t, m1["level"].(int), 1)
+	AssertEqualStr(t, m2["m1"].(map[string]interface{})["name"].(string), "golang")
+	AssertEqualInt(t, m2["m1"].(map[string]interface{})["level"].(int), 1)
+}
